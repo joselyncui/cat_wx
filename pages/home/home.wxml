@@ -1,0 +1,55 @@
+<!--pages/home/home.wxml-->
+<view class='home-content'>
+  <view class='floatBottom'>
+    <image src='{{floatInfors[0].pictureUrl}}' mode='aspectFill'></image>
+  </view>
+  <view class="real-time">
+  </view>
+  <view class="real-time-2">
+    <image src='{{bubbles[0].pictureUrl}}' class="header"/>
+    <text class="inline" class="title">{{bubbles[0].title}}</text>
+    <text class="inline" class="subtitle">{{bubbles[0].subtitle}}</text>
+  </view>
+  <!--顶部menu-->
+  <view class="top-menu">
+    <scroll-view scroll-x class='menu-scroll'>
+      <view class='menu-item' wx:for="{{navBars}}" wx:key="unique" data-idx="{{index}}" bindtap='navClick'>
+        <view class="{{currentTab==index?'active':''}}">{{item.title}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  <!--轮播-->
+  <swiper autoplay='true' indicator-dots='true' interval='2000' indicator-color='white' indicator-active-color='red' circular='true'   class='swiper-scroll'>
+    <swiper-item wx:for="{{carousels}}" wx:key="unique" >
+      <image class="swiper-img" src='{{item.pictureUrl}}' mode='scaleToFill'/>
+    </swiper-item>
+  </swiper>
+   <image  class="img-ad" src="http://img.mengdian.com/image/82/c1/93/6c/20170918/6944d0359df26a8b9a9bf3b2cb6411ab.jpg?mdw=750&mdh=230&x-oss-process=image/quality,q_80" mode='aspectFill' style='width:100%;'></image>
+   <view class="section-blocks">
+      <view class='block-item' wx:for="{{blocks}}" wx:key="unique">
+        <image class="menu_icon" src='{{item.pictureUrl}}'/>
+      </view>
+   </view>
+
+   <image src='http://img.mengdian.com/image/07/7d/7b/13/20160805/a5945e20771da1633f76a746ca0f4bad.jpg?mdw=750&mdh=20&x-oss-process=image/quality,q_80' style='height:10px;width:100%'/>
+
+   <view class="goods-list"> 
+      <view class="goods-item" wx:for="{{goods}}" wx:key="unique">
+        <image src='{{item.goodsList[0].index_image}}' mode='widthFix' style='width:100%;'/>
+        <text class="goods-title">{{item.goodsList[0].title}}</text>
+        <view class='botom-info'>
+          <text class=" inline prise">{{item.goodsList[0].sale_price}}</text>
+           <text class=" inline origin-prise">{{item.goodsList[0].highMarketPrice}}</text>
+           <view class='inline join-btn'>
+              <view class="inline join-btn-left">
+              <image src='/res/images/icon_tuan.png' class="icon"/>
+              {{item.goodsList[0].groupLeastMember}}人团</view>
+              <view class="inline join-btn-right">
+              去开团
+              <image src='/res/images/arrow_right_white.png' class="icon"/>
+              </view>
+           </view>
+        </view>
+      </view>
+   </view>
+</view>
