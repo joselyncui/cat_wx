@@ -15,7 +15,8 @@ Page({
     blocks:[],
     goods:[],
     floatInfors:[],
-    bubbles:[]
+    bubbles:[],
+    clientHeight:0
   
   },
 
@@ -130,6 +131,17 @@ Page({
     })
   },
 
+  getSystemInfo:function(){
+    let $this = this;
+    wx.getSystemInfo({
+      success: function (res) {
+        $this.setData({
+          clientHeight: res.windowHeight-100
+        });
+      }
+    });
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -137,6 +149,7 @@ Page({
     this.getCoursel();
     this.getFloatBottom();
     this.getBubbles();
+    this.getSystemInfo();
   },
 
   /**

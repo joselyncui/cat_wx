@@ -18,7 +18,9 @@
       </view>
     </scroll-view>
   </view>
-  <!--轮播-->
+
+  <scroll-view scroll-y style="height:{{clientHeight?clientHeight+'px':'auto'}};">
+       <!--轮播-->
   <swiper autoplay='true' indicator-dots='true' interval='2000' indicator-color='white' indicator-active-color='red' circular='true'   class='swiper-scroll'>
     <swiper-item wx:for="{{carousels}}" wx:key="unique" >
       <image class="swiper-img" src='{{item.pictureUrl}}' mode='scaleToFill'/>
@@ -52,4 +54,6 @@
         </view>
       </view>
    </view>
+  </scroll-view>
+ 
 </view>
