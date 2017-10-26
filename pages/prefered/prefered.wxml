@@ -1,2 +1,23 @@
 <!--pages/prefered/prefered.wxml-->
-<text>pages/prefered/prefered.wxml</text>
+<view class='main-content'>
+  <view class='topImg'>
+    <image src='{{components[0].images[0].pictureUrl}}'></image>
+  </view>
+  <image src='{{components[1].titleInfo.pictureUrl}}' class='category-title'></image>
+</view>
+<!--每日上新-->
+<scroll-view scroll-x class='new-scroll'>
+  <view wx:for='{{components[1].goodsList}}' wx:key='unique' data-idx='{{index}}' class='new-item'>
+    <image src='{{item.index_image}}'></image>
+    <text>{{item.title}}</text>
+    <text class='money'>￥{{item.sale_price}}</text>
+  </view>
+</scroll-view>
+<image src='{{components[2].images[0].pictureUrl}}' class='grey-deliver'></image>
+<image src='{{components[3].titleInfo.pictureUrl}}' class='category-title'></image>
+
+<scroll-view scroll-x class='selection-scroll'>
+  <view wx:for='{{components[3].images}}' wx:key='unique' data-idx='{{index}}' class='selection-item'>
+    <image src='{{item.pictureUrl}}'></image>
+  </view>
+</scroll-view>

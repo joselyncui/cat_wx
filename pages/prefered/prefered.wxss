@@ -1,1 +1,80 @@
 /* pages/prefered/prefered.wxss */
+.main-content{
+  width:100%;
+  height:100%;
+}
+.topImg image{
+  height: 300rpx;
+  width:100%;
+}
+.category-title{
+  height:90rpx;
+  width:100%;
+}
+.category-title .title{
+  margin:10rpx;
+}
+.circle{
+  display: inline-block;
+  background: yellow;
+  border-radius: 50%;
+  width:20rpx;
+  height:20rpx;
+  margin: 4rpx;
+  vertical-align: middle;
+  
+}
+.small-circle{
+ width:15rpx;
+ height:15rpx;
+}
+
+.new-container{
+  width:100%;
+  height:auto;
+}
+.new-scroll,.selection-scroll{
+  width:100%;
+  height:auto;
+  white-space: nowrap;
+}
+.new-item {
+  width:40%;
+  height:auto;
+  display: inline-block;
+  margin: 15rpx;
+  font-size: 0.9rem;
+  flex-direction: column;
+}
+
+.new-item image{
+  display: block;
+  width:100%;
+  height:300rpx;
+  margin-bottom: 10rpx;
+}
+
+.new-item text{
+  display: block;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+.money{
+  color: red;
+  margin-top: 10rpx;
+}
+
+.grey-deliver{
+  width:100%;
+  height:20rpx;
+}
+
+.selection-item {
+  display: inline-block;
+  width:auto;
+  height: auto;
+  margin-left: 20rpx;
+  margin-right:20rpx;
+}

@@ -6,7 +6,8 @@ var config = {
     carouselUrl:`${host}/mengdianApp/getPageInfo`,
     navBarUrl:`${host}/mengdianApp/getMdTabbar`,
     floatBotom:`${host}/mengdianApp/getAppRightBottomFloat`,
-    bubbles:`${host}/mengdianApp/getHomeRecommendBubble`
+    bubbles:`${host}/mengdianApp/getHomeRecommendBubble`,
+    preferedUrl: `${host}/maps/index`
   }
 }
 

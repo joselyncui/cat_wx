@@ -56,7 +56,7 @@ Page({
         
         var carousels = resp.data.data.materialList[0].materialList;
         var navBars = resp.data.data.navChannel.materialList;
-        var goods = resp.data.data.materialList.splice(4,5);
+        var goods = resp.data.data.materialList.splice(4,4);
         console.log(carousels);
         console.log(navBars);
         console.log(resp.data.data.materialList[1].pictureUrl);
@@ -64,7 +64,7 @@ Page({
           carousels: resp.data.data.materialList[0].materialList,
           navBars: resp.data.data.navChannel.materialList,
           advertisement: resp.data.data.materialList[1],
-          blocks: resp.data.data.materialList[2].materialList,
+          blocks: resp.data.data.materialList[1].materialList,
           goods:goods
         })
       },
@@ -94,7 +94,6 @@ Page({
         "appIdentifier": "com.hs.yjseller" },
       method:'POST',
       success:function(resp){
-        console.log('float-----');
         console.log(resp.data.data.infos);
         $this.setData({
           floatInfors:resp.data.data.infos
