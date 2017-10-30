@@ -3,3 +3,7 @@
 还没有完成 草稿
 还没有自定义组件 啊 呀呀呀呀呀 
 
+![image](https://github.com/joselyncui/cat_wx/blob/master/cut.gif)
+
+
+
