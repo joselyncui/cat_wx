@@ -1,12 +1,22 @@
 // pages/prefered/prefered.js
 var config = require('../../config');
+var utils = require('../../utils/util');
+
+const screenSize = utils.screenInfo();
+let interval;
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    components:[]
+    components:[],
+    scrollLeft:0,
+    slideImgs: [],
+    currentTab:0,
+    goods2List:[],
+    isTop:false,
   },
 
   getPreferedData: function() {
@@ -17,9 +27,10 @@ Page({
       },
       method: "POST",
       success: function (resp) {
-        console.log(resp);
         $this.setData({
-          components: resp.data.data.components
+          components: resp.data.data.components,
+          slideImgs: resp.data.data.components[3].images,
+          goods2List: resp.data.data.components[9].anchor[0].goodsList,
         });
       },
       fail: function (error) {
@@ -28,32 +39,85 @@ Page({
     });
   },
 
+/***
+ * 自动滚动scroll-view
+ */
+  move: function(e){
+    let $this = this;
+      
+    interval = setInterval(function () {
+      $this.setData({
+        scrollLeft: $this.data.scrollLeft + screenSize.screenWidth * 0.6,
+      });
+
+      // $this.changeData();
+
+    }, 1500);
+
+  },
+
+  changeData: function(){
+    let imgs = this.data.slideImgs.concat();
+    let img = imgs.shift();
+    imgs.push(img);
+    this.setData({
+      slideImgs: imgs,
+    });
+  },
+
+  end: function(e) {
+    
+    let imgs = this.data.slideImgs.concat();
+    // for(let i = 0; i < this.data.slideImgs.length; i++) {
+    //   imgs.push(this.data.slideImgs[i]);
+    // }
+    // this.setData({
+    //   slideImgs:imgs,
+    // });
+    this.setData({
+      scrollLeft: 0
+    });
+
+  },
+
+  
+
+  navClick: function(e){
+    let index = e.currentTarget.dataset.idx;
+    this.setData({
+      currentTab: index,
+      goods2List: this.data.components[9].anchor[index].goodsList,
+    });
+
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getPreferedData();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    this.getPreferedData();
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.move();
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    if(interval != undefined) {
+      clearInterval(interval);
+    }
   },
 
   /**
@@ -82,5 +146,33 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  onPageScroll: function(e) {
+    let $this = this;
+    wx.createSelectorQuery().select('#scroll-fixed-deliver').boundingClientRect(function (rect) {
+      // rect.id      // 节点的ID
+      // rect.dataset // 节点的dataset
+      // rect.left    // 节点的左边界坐标
+      // rect.right   // 节点的右边界坐标
+      // rect.bottom  // 节点的下边界坐标
+      // rect.width   // 节点的宽度
+      // rect.height  // 节点的高度
+      // rect.top     // 节点的上边界坐标
+
+      let top = rect.top;
+      let result = $this.data.isTop;
+      if(top>0) {
+        result = false;
+      } else {
+        result = true;
+      }
+
+      $this.setData({
+        isTop: result,
+      });
+     
+    }).exec()
+
   }
 })
