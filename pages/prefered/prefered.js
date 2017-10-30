@@ -159,8 +159,10 @@ Page({
       // rect.width   // 节点的宽度
       // rect.height  // 节点的高度
       // rect.top     // 节点的上边界坐标
-
+      
       let top = rect.top;
+      console.log('top---' + top);
+
       let result = $this.data.isTop;
       if(top>0) {
         result = false;
