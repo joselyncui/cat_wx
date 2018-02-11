@@ -1,15 +1,13 @@
-// pages/message/message.js
+// component/red-price/red-price.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    __lgpanel__:'hahhaha',
-  },
-
-  getData: function(){
-    return '1234';
+    content:'',
+    intenger:'0',
+    decimal: '0',
   },
 
   /**

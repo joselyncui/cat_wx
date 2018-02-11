@@ -14,6 +14,20 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const screenInfo= ()=>{
+  const result = {screenWidth:0, screenHeight:0};
+
+  wx.getSystemInfo({
+    success: function(res) {
+      result.screenWidth = res.windowWidth;
+      result.screenHeight = res.windowHeight;
+    },
+  });
+
+  return result;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  screenInfo: screenInfo
 }

@@ -19,14 +19,14 @@
     </scroll-view>
   </view>
 
-  <scroll-view scroll-y style="height:{{clientHeight?clientHeight+'px':'auto'}};">
+  <scroll-view scroll-y class="scroll-container">
        <!--轮播-->
   <swiper autoplay='true' indicator-dots='true' interval='2000' indicator-color='white' indicator-active-color='red' circular='true'   class='swiper-scroll'>
     <swiper-item wx:for="{{carousels}}" wx:key="unique" >
       <image class="swiper-img" src='{{item.pictureUrl}}' mode='scaleToFill'/>
     </swiper-item>
   </swiper>
-   <image  class="img-ad" src="http://img.mengdian.com/image/82/c1/93/6c/20170918/6944d0359df26a8b9a9bf3b2cb6411ab.jpg?mdw=750&mdh=230&x-oss-process=image/quality,q_80" mode='aspectFill' style='width:100%;'></image>
+   <!-- <image  class="img-ad" src="http://img.mengdian.com/image/82/c1/93/6c/20170918/6944d0359df26a8b9a9bf3b2cb6411ab.jpg?mdw=750&mdh=230&x-oss-process=image/quality,q_80" mode='aspectFill' style='width:100%;'></image> -->
    <view class="section-blocks">
       <view class='block-item' wx:for="{{blocks}}" wx:key="unique">
         <image class="menu_icon" src='{{item.pictureUrl}}'/>

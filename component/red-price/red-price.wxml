@@ -1,0 +1,6 @@
+<!--component/red-price/red-price.wxml-->
+<template name='redPrice'>
+    <view class='red'><text>￥{{intenger}}.{{decimal}} 
+    {{content}}</text>
+    </view>
+</template>
