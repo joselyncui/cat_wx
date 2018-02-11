@@ -136,7 +136,7 @@ Page({
     wx.getSystemInfo({
       success: function (res) {
         $this.setData({
-          clientHeight: res.windowHeight-100
+          clientHeight: res.windowHeight-30
         });
       }
     });
