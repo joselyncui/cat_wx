@@ -1,5 +1,0 @@
-<import src="../../component/red-price/red-price.wxml"/>
-<text>pages/message/message.wxml</text>
-<template is="redPrice" data="{{content:'12.9' }}"/>
-<view>
-{{getData}}</view>

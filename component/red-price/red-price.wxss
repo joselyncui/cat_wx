@@ -1,5 +1,0 @@
-/* component/red-price/red-price.wxss */
-
-.red{
-  color:red;
-}
